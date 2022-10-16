@@ -1,0 +1,22 @@
+.movements-container{
+    width: 80%;
+    max-width: 850px;
+    padding: 1rem 2rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.movements-container h2{
+    padding: 1rem 0rem;
+}
+.movements__spans{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.movements__span{
+    background-color: var(--color-lightest-gray);
+    color: var(--color-gray);
+    border-radius: 15px;
+    padding: 0.2rem 1rem;
+    /* font-weight: 550; */
+}

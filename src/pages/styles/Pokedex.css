@@ -1,0 +1,40 @@
+.pokemons-container {
+  padding-bottom: 100px;
+}
+
+.card-container {
+  max-width: 1350px;
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 20px;
+}
+
+.card-poke {
+  width: 250px;
+  border: 2px gray solid;
+}
+
+.card-poke__img {
+  width: 100%;
+  height: 100%;
+}
+
+.pokedex__main-text {
+  text-align: center;
+  margin: 2rem;
+}
+
+.pokedex__main-text span {
+  color: var(--color-red);
+  font-weight: 700;
+}
+
+.banner-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
