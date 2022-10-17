@@ -11,7 +11,7 @@ const ProtectedRoutes = () => {
     return <Navigate to='/'/>
   }
   return (
-    <div>ProtectedRoutes</div>
+    <div><h1>ProtectedRoutesx</h1></div>
   )
 }
 

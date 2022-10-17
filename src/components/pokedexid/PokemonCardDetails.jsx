@@ -5,8 +5,8 @@ import './styles/pokemoncarddetails.css'
 
 const PokemonCardDetails = ({pokemon}) => {
   return (
-    <div className='pokemon-card-detail--container'>
-        <div className='pokemon-card-detail__banner'></div>
+    <div className={`pokemon-card-detail--container`}>
+        <div className={`pokemon-card-detail__banner  bg-${pokemon?.types[0].type.name}`}></div>
         <img className='pokemon-card-detail__img' src={pokemon?.sprites.other['official-artwork'].front_default} alt=''></img>
         <PokemonInfo pokemon={pokemon}/>
         <PokemonStats pokemon={pokemon}/>

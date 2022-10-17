@@ -14,7 +14,7 @@ const Pokedex = () => {
   const [pokemons, setPokemons] = useState()
   const [typeSelected, setTypeSelected] = useState('All pokemons')
   const [currentPage, setCurrentPage] = useState(1)
-  const [postsPerPage, setPostsPerPage] = useState(20)
+  const [pokemonPerPage, setPokemonPerPage] = useState(20)
 
   useEffect(() => {
     if (typeSelected !== 'All pokemons') {
@@ -25,22 +25,25 @@ const Pokedex = () => {
         })
         .catch(err => console.log(err))
     } else {
-      const URL = 'https://pokeapi.co/api/v2/pokemon?limit=100&offset=0'
+      const URL = 'https://pokeapi.co/api/v2/pokemon?limit=500&offset=0'
       axios.get(URL)
         .then(res => setPokemons(res.data.results))
         .catch(err => console.log(err))
     }
   }, [typeSelected])
 
-  console.log(typeSelected);
+  // console.log(typeSelected);
 
   const userName = useSelector(state => state.userName)
 
-  const indexOfLastPokemon = currentPage * postsPerPage
-  const indexOfFirstPokemon = indexOfLastPokemon - postsPerPage
+  const indexOfLastPokemon = currentPage * pokemonPerPage
+  const indexOfFirstPokemon = indexOfLastPokemon - pokemonPerPage
   const currentPokemonsPage = pokemons?.slice(indexOfFirstPokemon, indexOfLastPokemon)
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber)
+
+  // console.log('FROM',pokemonPerPage);
+
   return (
     <div className='pokemons-container'>
       <Header/>
@@ -48,7 +51,7 @@ const Pokedex = () => {
       <div className='banner-container'>
         <InputSearch />
         <SelectByType setTypeSelected={setTypeSelected} />
-        <AmountPokemons setPostsPerPage={setPostsPerPage} />
+        <AmountPokemons setPokemonPerPage={setPokemonPerPage} setCurrentPage={setCurrentPage}/>
       </div>
 
 
@@ -59,9 +62,10 @@ const Pokedex = () => {
           }
         </div>
       </main>
-      <Pagination postsPerPage={postsPerPage} pokemons={pokemons} paginate={paginate} currentPage={currentPage} />
+      <Pagination pokemonPerPage={pokemonPerPage} pokemons={pokemons} paginate={paginate} currentPage={currentPage} />
     </div>
   )
 }
+
 
 export default Pokedex

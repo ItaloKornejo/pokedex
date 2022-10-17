@@ -6,7 +6,32 @@
   --color-gray: #46484a;
   --color-light-gray: #959595;
   --color-lightest-gray: #dadada;
-  --color-red-dark: #990c0c; 
+  --color-red-dark: #990c0c;
+
+  /* POKEMONS COLOR */
+  --color-normal: #FFF;
+  --color-fighting: #FFF;
+  --color-flying:  #FFF;
+  --color-poision: #ABDAC6;
+  --color-ground: #FFF;
+
+  --color-rock: #FFF;
+  --color-bug: #FFF;
+  --color-ghost: #FFF;
+  --color-steel: #FFF;
+  --color-fire: #FFF;
+
+  --color-water: #FFF;
+  --color-grass: #7EC6C5;
+  --color-electric: #FFF;
+  --color-pyschic: #FFF;
+  --color-ice: #FFF;
+  
+  --color-dragon: #FFF;
+  --color-dark: #FFF;
+  --color-fairy: #FFF;
+  --color-unknown: #FFF;
+  --color-shadow: #FFF;
 }
 
 *{
@@ -17,7 +42,7 @@ body{
   font-family: 'Poppins', sans-serif;
 }
 h1,h2,h3,h4,ul,p{
-  /* margin-top: 0; */
+  margin-top: 0;
   margin-bottom: 0;
 }
 ul{

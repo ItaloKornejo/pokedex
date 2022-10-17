@@ -1,10 +1,11 @@
 import React from 'react'
 import './styles/amountpokemons.css'
-const AmountPokemons = ({setPostsPerPage}) => {
+const AmountPokemons = ({setPokemonPerPage,setCurrentPage}) => {
     
     const handleChange = (e) => {
-        console.log(e.target.value);
-        setPostsPerPage(e.target.value)
+        // console.log(e.target.value);
+        setPokemonPerPage(e.target.value)
+        setCurrentPage(1)
     }
 
   return (

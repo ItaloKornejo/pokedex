@@ -1,0 +1,32 @@
+.pokemon404-container {
+
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.pokemon404-container img {
+    max-width: 300px;
+}
+
+
+.pokemon404-container a {
+    background-color: var(--color-red);
+    padding: 0.2rem 1rem;
+    color: var(--color-white);
+    border-radius: 15px;
+    font-weight: 700;
+    transition: 150ms ease-in-out;
+}
+
+.pokemon404-container a:hover {
+    background-color: var(--color-white);
+    border: 3px var(--color-red) solid;
+    color: var(--color-gray);
+    transform: scale(1.1) ;
+    transition: 100ms ease-in-out;
+
+}
