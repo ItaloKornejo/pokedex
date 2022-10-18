@@ -9,14 +9,17 @@ import SelectByType from '../components/pokedex/SelectByType'
 import Header from '../components/shared/Header'
 import './styles/Pokedex.css'
 
+
 const Pokedex = () => {
 
   const [pokemons, setPokemons] = useState()
   const [typeSelected, setTypeSelected] = useState('All pokemons')
   const [currentPage, setCurrentPage] = useState(1)
   const [pokemonPerPage, setPokemonPerPage] = useState(20)
+  const themeColor = useSelector(state => state.themeColor)
 
   useEffect(() => {
+    setCurrentPage(1)
     if (typeSelected !== 'All pokemons') {
       axios.get(typeSelected)
         .then(res => {
@@ -32,22 +35,17 @@ const Pokedex = () => {
     }
   }, [typeSelected])
 
-  // console.log(typeSelected);
-
   const userName = useSelector(state => state.userName)
-
   const indexOfLastPokemon = currentPage * pokemonPerPage
   const indexOfFirstPokemon = indexOfLastPokemon - pokemonPerPage
   const currentPokemonsPage = pokemons?.slice(indexOfFirstPokemon, indexOfLastPokemon)
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
-  // console.log('FROM',pokemonPerPage);
-
   return (
     <div className='pokemons-container'>
       <Header/>
-      <p className='pokedex__main-text'><span>Welcome {userName} </span>,here you can find your favorite pokemon</p>
+      <p className={`pokedex__main-text theme-text-${themeColor}`}><span className={`pokedex__main-text-name theme_subtitle-${themeColor}`} >Welcome {userName} </span >,here you can find your favorite pokemon</p>
       <div className='banner-container'>
         <InputSearch />
         <SelectByType setTypeSelected={setTypeSelected} />

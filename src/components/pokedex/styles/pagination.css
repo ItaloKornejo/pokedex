@@ -6,7 +6,7 @@
   padding: 0rem 1rem;
 }
 
-.pagination li {
+.page__item {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,12 +19,12 @@
 
 }
 
-.pagination li a {
+.page__link {
   cursor: pointer;
   font-weight: 700;
 }
 
-.pagination li:hover {
+.page__item:hover {
   transform: scale(1.1);
   transition: transform 100ms ease;
   border: 2px black solid;

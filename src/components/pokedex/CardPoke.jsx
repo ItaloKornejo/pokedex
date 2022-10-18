@@ -2,9 +2,11 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './styles/cardPoke.css'
+import { useSelector } from 'react-redux'
 
 const CardPoke = ({ url }) => {
     const [pokemon, setPokemon] = useState()
+    const themeColor = useSelector(state => state.themeColor)
 
     useEffect(() => {
         axios.get(url)
@@ -20,7 +22,7 @@ const CardPoke = ({ url }) => {
 
     return (
         <div className={`card-poke__border border-${pokemon?.types[0].type.name}`}>
-            <article onClick={handlePokemon} className='card-poke'>
+            <article onClick={handlePokemon} className={`card-poke theme-card-${themeColor}`}>
                 <header className={`card-poke__header bg-${pokemon?.types[0].type.name}`}>
                     <img className='card-poke__img' src={pokemon?.sprites.other['official-artwork'].front_default} alt=''></img>
                 </header>
@@ -28,15 +30,15 @@ const CardPoke = ({ url }) => {
                     <h3 className={`card-poke__name  letter-${pokemon?.types[0].type.name}`}>{pokemon?.name}</h3>
                     <ul className='card-poke__types-container'>
                         {
-                            pokemon?.types.map(type => (<li key={type.slot} className='card-poke__type'>{type.type.name}</li>))
+                            pokemon?.types.map(type => (<li key={type.slot} className={`card-poke__type theme-text-${themeColor}`}>{type.type.name}</li>))
                         }
                     </ul>
-                    <p className='card-poke__type-label'>Type</p>
+                    <p className={`card-poke__type-label theme-card-text-${themeColor}`}>Type</p>
                     <ul className='card-poke__stats-container'>
                         {
                             pokemon?.stats.map(stat => (
                                 <li className='card-poke__stat' key={stat.stat.name}>
-                                    <span className='card-poke__stat-label'>{stat.stat.name}</span>
+                                    <span className={`card-poke__stat-label theme-card-text-${themeColor}`}>{stat.stat.name}</span>
                                     <span className={`card-poke__stat-number letter-${pokemon?.types[0].type.name}`}>{stat.base_stat}</span>
                                 </li>))
                         }

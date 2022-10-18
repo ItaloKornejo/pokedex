@@ -1,8 +1,10 @@
 import React from 'react'
 import './styles/pagination.css'
+import { useSelector } from 'react-redux'
 
 const Pagination = ({ pokemonPerPage, pokemons, paginate, currentPage }) => {
 
+  const themeColor = useSelector(state => state.themeColor)
 
   const pageNumbers = []
 
@@ -19,7 +21,6 @@ const Pagination = ({ pokemonPerPage, pokemons, paginate, currentPage }) => {
     if(pageNumbers.length > 8){
       for (let i = pageNumbers.length-4; i <= pageNumbers.length; i++) {
         paginationEnd.push(i)
-        
       }
     }
   }
@@ -36,7 +37,7 @@ const Pagination = ({ pokemonPerPage, pokemons, paginate, currentPage }) => {
       return pageSection
     }
     if(currentPage>=paginationEnd[1]){
-      pageSection.push('<','....',...paginationEnd)
+      pageSection.push('<',1,'....',...paginationEnd)
       return pageSection
     }
     pageSection.push(...paginatioStart,'....',pageNumbers.length)
@@ -46,12 +47,16 @@ const Pagination = ({ pokemonPerPage, pokemons, paginate, currentPage }) => {
 
 
   const handleBC = (page) => {
+    let colorDefault='var(--color-red)';
+    if(themeColor==='dark'){
+      colorDefault='var(--color-dark-one)';
+    }
     if (page === currentPage  )
-      return ({ backgroundColor: 'var(--color-red)', color: 'var(--color-white)' })
+      return ({ backgroundColor: colorDefault, color: 'var(--color-white)' })
     else if(page === '...' || page === '....' ){
       return ({  color: 'var(--color-gray)',cursor:'default',pointerEvents: 'none' })
     }else if(page === '<' || page === '>'){
-      return ({ backgroundColor: 'var(--color-red)', color: 'var(--color-white)' })
+      return ({ backgroundColor: colorDefault, color: 'var(--color-white)' })
     }
   }
 
@@ -69,15 +74,15 @@ const Pagination = ({ pokemonPerPage, pokemons, paginate, currentPage }) => {
     <nav>
       <ul className='pagination'>
         {
-          (pageNumbers.length > 1) ? <> { (pageNumbers.length<9) ? <>{pageNumbers.map(number => (
-            <li key={number} className='page__item' style={handleBC(number)}>
-              <a onClick={() => paginate(number)} className='page__link' >
+          (pageNumbers.length > 1) ? <> { (pageNumbers.length<9) ? <> {pageNumbers.map(number => (
+            <li className={`page__item theme-page-item-${themeColor}`} onClick={() => handleChangePage(number)} key={number} style={handleBC(number)}>
+              <a className={`page__link theme-page-link-${themeColor}`} >
                 {number}
               </a>
             </li>
           ))}</>: <> {sectionPages(currentPage).map(number => (
-            <li onClick={() => handleChangePage(number)} key={number} className='page__item' style={handleBC(number)} >
-              <a  className='page__link'>
+            <li className={`page__item theme-page-item-${themeColor}`} onClick={() => handleChangePage(number)} key={number}  style={handleBC(number)} >
+              <a  className={`page__link theme-page-link-${themeColor}`}>
                 {number}
               </a>
             </li>

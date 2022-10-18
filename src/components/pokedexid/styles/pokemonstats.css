@@ -17,13 +17,13 @@
     flex-direction: row;
     justify-content: space-between;
 }
-#stat__name{
+.stat__name{
     text-transform: uppercase;
     font-weight: 700;
     font-size: 0.9rem;
 }
 
-#stat__base-stat{
+.stat__base-stat{
     /* text-transform: uppercase; */
     font-weight: 700;
     font-size: 0.7rem;

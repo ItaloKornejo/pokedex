@@ -8,30 +8,10 @@
   --color-lightest-gray: #dadada;
   --color-red-dark: #990c0c;
 
-  /* POKEMONS COLOR */
-  --color-normal: #FFF;
-  --color-fighting: #FFF;
-  --color-flying:  #FFF;
-  --color-poision: #ABDAC6;
-  --color-ground: #FFF;
-
-  --color-rock: #FFF;
-  --color-bug: #FFF;
-  --color-ghost: #FFF;
-  --color-steel: #FFF;
-  --color-fire: #FFF;
-
-  --color-water: #FFF;
-  --color-grass: #7EC6C5;
-  --color-electric: #FFF;
-  --color-pyschic: #FFF;
-  --color-ice: #FFF;
-  
-  --color-dragon: #FFF;
-  --color-dark: #FFF;
-  --color-fairy: #FFF;
-  --color-unknown: #FFF;
-  --color-shadow: #FFF;
+  --color-dark-one: #00ABB3;
+  --color-dark-two: #3C4048;
+  --color-dark-three: #B2B2B2;
+  --color-dark-four: #EAEAEA;
 }
 
 *{
@@ -62,4 +42,92 @@ input {
 }
 option:hover{
   background-color: red;
+}
+
+
+.theme-app-dark{
+  background-color: var(--color-dark-two);
+}
+
+.theme_subtitle-dark {
+  color: var(--color-dark-one)
+}
+
+.theme-text-dark {
+  color: var(--color-dark-four);
+}
+
+
+.theme-btn-dark{
+  background-color: var(--color-dark-one);
+}
+
+.theme-footer-dark{
+  background-color: var(--color-dark-one);
+}
+
+.theme-header-up-dark{
+  background-color: var(--color-dark-one);
+}
+
+.theme-header-down-dark{
+  background-color: var(--color-dark-four);
+}
+
+.theme-card-dark{
+  background-color:  #2a2d33;
+}
+
+.theme-card-text-dark{
+  color: #969696;
+}
+
+.theme-span-dark{
+  color:  #2a2d33;
+  /* background-color: #969696; */
+
+}
+
+.theme-skill-dark{
+  color:  #2a2d33;
+  background-color: #969696;
+
+}
+
+.theme-moves-dark{
+  background-color: #494f59;
+  color: #b5bcc7;
+}
+
+.theme-bar-dark{
+  background-color: #494f59;
+}
+
+.theme-page-link-dark{
+  color: var(--color-dark-four);
+}
+
+.theme-page-item-dark:hover {
+  transform: scale(1.1);
+  transition: transform 100ms ease;
+  border: 2px white solid;
+}
+
+.theme-404-btn-dark{
+  background-color: #00ABB3;
+  color: var(--color-white);
+}
+
+
+.theme-404-btn-dark:hover {
+  background-color: var(--color-white);
+  border: 3px #00ABB3 solid;
+  color: var(--color-gray);
+  transform: scale(1.1) ;
+  transition: 100ms ease-in-out;
+
+}
+
+.theme-toggle-dark{
+  border: 2px var(--color-dark-four) solid;
 }

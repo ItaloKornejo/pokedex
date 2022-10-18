@@ -13,7 +13,7 @@
 }
 
 
-.pokemon404-container a {
+.pokemon404__btn {
     background-color: var(--color-red);
     padding: 0.2rem 1rem;
     color: var(--color-white);
@@ -22,7 +22,7 @@
     transition: 150ms ease-in-out;
 }
 
-.pokemon404-container a:hover {
+.pokemon404__btn:hover {
     background-color: var(--color-white);
     border: 3px var(--color-red) solid;
     color: var(--color-gray);
