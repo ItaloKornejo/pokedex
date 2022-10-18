@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './styles/cardPoke.css'
 import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 const CardPoke = ({ url }) => {
     const [pokemon, setPokemon] = useState()

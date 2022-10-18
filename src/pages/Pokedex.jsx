@@ -8,6 +8,8 @@ import Pagination from '../components/pokedex/Pagination'
 import SelectByType from '../components/pokedex/SelectByType'
 import Header from '../components/shared/Header'
 import './styles/Pokedex.css'
+import { useDispatch } from 'react-redux'
+import { setFilterDataGlobal } from '../store/slices/filterdata.slice'
 
 
 const Pokedex = () => {
@@ -16,7 +18,10 @@ const Pokedex = () => {
   const [typeSelected, setTypeSelected] = useState('All pokemons')
   const [currentPage, setCurrentPage] = useState(1)
   const [pokemonPerPage, setPokemonPerPage] = useState(20)
+
+  const dispatch = useDispatch()
   const themeColor = useSelector(state => state.themeColor)
+  dispatch(setFilterDataGlobal({type:typeSelected,amount:pokemonPerPage,page:currentPage}))
 
   useEffect(() => {
     setCurrentPage(1)
@@ -34,6 +39,10 @@ const Pokedex = () => {
         .catch(err => console.log(err))
     }
   }, [typeSelected])
+
+  useEffect(()=>{
+    
+  },[typeSelected,currentPage,pokemonPerPage])
 
   const userName = useSelector(state => state.userName)
   const indexOfLastPokemon = currentPage * pokemonPerPage
